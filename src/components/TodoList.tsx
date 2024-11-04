@@ -68,6 +68,7 @@ function TodoList() {
 			}}
 			removeTodo={() => removeTodo(index)}
 		/>))}
+		{todos.length ?
 		<div className="pagination">
 			<div className="left">{todos.filter(todo => !todo.completed).length} items left!</div>
 			<div className="tags">
@@ -76,7 +77,7 @@ function TodoList() {
 				<span className={filter === "Completed" ? "active" : ""} onClick={() => setFilter("Completed")}>Completed</span>
 			</div>
 			<div className="clear" onClick={() => setTodos(todos.filter(todo => !todo.completed))}>Clear completed</div>
-		</div>
+		</div> : null}
 	</>)
 }
 

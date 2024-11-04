@@ -1,0 +1,140 @@
+.item {
+	height: 4rem;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 4rem 22rem 4rem;
+}
+
+.item .check {
+	transform: translateY(3px);
+	cursor: pointer;
+	margin: auto;
+}
+
+.item .check svg {
+	overflow: visible;
+}
+
+.item .check svg path {
+	fill: none;
+	stroke: #7AB2D3;
+	stroke-width: 6;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+	stroke-dasharray: 241 9999999;
+	stroke-dashoffset: 0;
+}
+
+.item.checked .check svg path {
+	stroke-dasharray: 70.5096664428711 9999999;
+	stroke-dashoffset: -262.2723388671875;
+}
+
+.item .content {
+	text-align: left;
+	font-size: 2rem;
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.item .content input[type=text] {
+	height: 100%;
+	width: 100%;
+	border: none;
+	font-size: 2rem;
+	box-sizing: border-box;
+	background-color: inherit;
+}
+
+.item .content input[type=text]:focus {
+	outline: none;
+	background-color: inherit;
+}
+
+.item.checked .content {
+	color: #707070;
+	text-decoration-line: line-through;
+}
+
+.item .delete {
+	margin: auto;
+}
+
+.pagination {
+	height: 2rem;
+	border-top: 1px solid #dddddd;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 300;
+}
+
+.pagination .left {
+	margin-left: 1rem;
+}
+
+.pagination .tags {
+	display: inline-flex;
+	gap: 1rem;
+}
+
+.pagination .tags .active {
+	outline: #4A628A solid 2px;
+	outline-offset: .20rem;
+	border-radius: 2px;
+}
+
+.pagination .tags span {
+	cursor: pointer;
+}
+
+.pagination .tags span:hover {
+	outline: #7AB2D3 solid 1px;
+	outline-offset: .25rem;
+	border-radius: 2px;
+}
+
+.pagination .clear {
+	margin-right: 1rem;
+	cursor: pointer;
+}
+
+.pagination .clear:hover {
+	text-decoration: underline;
+}
+
+.form {
+	position: relative;
+	height: 4rem;
+}
+
+.form .fullfil {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	color: #4A628A;
+	cursor: pointer;
+}
+
+.form input[type=text] {
+	height: 100%;
+	width: 100%;
+	border: none;
+	font-size: 1.5rem;
+	padding: 0 1rem 0 4rem;
+	box-sizing: border-box;
+	background-color: #B9E5E8;
+}
+
+.form input[type=text]::placeholder {
+	font-style: italic;
+}
+
+.form input[type=text]:focus {
+	outline: none;
+	background-color: #7AB2D3;
+	border: 3px solid #4A628A;
+}

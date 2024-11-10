@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Todo } from "../services/types"
 
-function TodoItem({ todo, setTodo, removeTodo }: { todo: Todo, setTodo: ({content, completed}: {content: string, completed: boolean}) => void, removeTodo: () => void }) {
+function TodoItem({ todo, setTodo, removeTodo }: { todo: Todo, setTodo: (todo: Todo) => void, removeTodo: () => void }) {
 	const [editing, setEditing] = useState(false)
 	const [completed, setCompleted] = useState(todo.completed)
 	const [text, setText] = useState(todo.content)
@@ -9,6 +9,7 @@ function TodoItem({ todo, setTodo, removeTodo }: { todo: Todo, setTodo: ({conten
 	const check = () => {
 		setCompleted(!completed)
 		setTodo({
+			id: todo.id,
 			content: todo.content,
 			completed: !completed
 		})
@@ -17,6 +18,7 @@ function TodoItem({ todo, setTodo, removeTodo }: { todo: Todo, setTodo: ({conten
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === "Enter" && text !== "") {
 			setTodo({
+				id: todo.id,
 				content: text,
 				completed: completed
 			})

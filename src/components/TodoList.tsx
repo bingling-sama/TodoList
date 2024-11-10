@@ -9,9 +9,9 @@ function TodoList() {
 	const [text, setText] = useState("")
 	const [filter, setFilter] = useState<"All" | "Active" | "Completed">("All")
 	
-	const editTodo = (index: number, callback: (todo: Todo) => Todo) => {
+	const editTodo = (index: number, newTodo: Todo) => {
 		setTodos(todos => {
-			todos[index] = callback(todos[index])
+			todos[index] = newTodo
 			return JSON.parse(JSON.stringify(todos))
 		})
 	}
@@ -59,12 +59,8 @@ function TodoList() {
 		{filterTodos.map((todo, index) => (<TodoItem
 			todo={todo}
 			key={todo.id}
-			setTodo={({content, completed}) => {
-				editTodo(index, todo => {
-					todo.content = content
-					todo.completed = completed
-					return todo
-				})
+			setTodo={(newTodo) => {
+				editTodo(index, newTodo)
 			}}
 			removeTodo={() => removeTodo(index)}
 		/>))}

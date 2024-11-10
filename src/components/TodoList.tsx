@@ -8,11 +8,11 @@ function TodoList() {
 	const [todos, setTodos] = useState<Todo[]>([])
 	const [text, setText] = useState("")
 	const [filter, setFilter] = useState<"All" | "Active" | "Completed">("All")
-
+	
 	const editTodo = (index: number, callback: (todo: Todo) => Todo) => {
 		setTodos(todos => {
 			todos[index] = callback(todos[index])
-			return todos
+			return JSON.parse(JSON.stringify(todos))
 		})
 	}
 
